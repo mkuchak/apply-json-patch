@@ -1,50 +1,109 @@
-# React + TypeScript + Vite
+# JSON Patch Applier
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+JSON Patch Applier is a web-based tool that allows users to apply JSON Patch operations to JSON data and visualize the changes. It provides an intuitive interface for working with JSON Patch, making it easier to understand and manipulate JSON data.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Apply JSON Patch operations to JSON data
+- Visualize differences between original and patched JSON
+- Generate reverse JSON Patch operations
+- Prettify JSON input
+- Persistent state using local storage
+- Responsive design for various screen sizes
 
-## Expanding the ESLint configuration
+## Technologies Used
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+- immutable-json-patch
+- jsondiffpatch
+- pnpm (Package manager)
 
-- Configure the top-level `parserOptions` property like this:
+## Getting Started
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+### Prerequisites
+
+- Node.js (v14 or later)
+- pnpm (v6 or later)
+
+### Installation
+
+1. Clone the repository:
+
+   ```
+   git clone https://github.com/your-username/json-patch-applier.git
+   cd json-patch-applier
+   ```
+
+2. Install dependencies:
+   ```
+   pnpm install
+   ```
+
+### Running the Application
+
+To start the development server:
+
+```
+pnpm dev
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+The application will be available at `http://localhost:4242`.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+### Building for Production
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+To create a production build:
+
 ```
+pnpm build
+```
+
+The built files will be in the `dist` directory.
+
+## Usage
+
+1. Enter your JSON data in the "JSON Data" textarea.
+2. Enter your JSON Patch operations in the "Proposed JSON Patch" textarea.
+3. Click the "Apply Patch" button to see the result.
+4. The patched JSON will appear in the "Result" textarea.
+5. The reverse JSON Patch will be displayed in the "Revert JSON Patch" textarea.
+6. Use the "Prettify JSON" button to format the input JSON.
+7. Toggle the "Show unchanged values" checkbox to control the diff view.
+8. Use the "Reset" button to clear all inputs and results.
+
+## Project Structure
+
+- `src/App.tsx`: Main application component
+- `src/components/react-formatter.tsx`: Component for rendering JSON diffs
+- `src/main.tsx`: Entry point of the application
+- `src/index.css`: Global styles (Tailwind CSS)
+- `public/`: Static assets
+- `vite.config.ts`: Vite configuration
+- `tailwind.config.js`: Tailwind CSS configuration
+- `tsconfig.json`: TypeScript configuration
+- `pnpm-lock.yaml`: pnpm lock file for consistent dependency versions
+
+## Scripts
+
+- `pnpm dev`: Start the development server
+- `pnpm build`: Build the project for production
+- `pnpm lint`: Run ESLint for code linting
+- `pnpm preview`: Preview the production build locally
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## Acknowledgements
+
+- [immutable-json-patch](https://github.com/Starcounter-Jack/JSON-Patch) for JSON Patch operations
+- [jsondiffpatch](https://github.com/benjamine/jsondiffpatch) for JSON diffing
+- [Tailwind CSS](https://tailwindcss.com/) for styling
+- [Vite](https://vitejs.dev/) for fast development and building
+- [pnpm](https://pnpm.io/) for efficient package management
